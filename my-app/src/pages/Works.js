@@ -456,14 +456,14 @@ function Works({ activeWork, setActiveWork }) {
     <div className="cape-verde-content">
       <div className="project-header">
         <img src={thumbtack} alt="Thumbtack" className="work-thumbtack-img" />
-        <h2>Paragon Policy Fellowship: Digital Voting in Maricopa County</h2>
+        <h2>Digital Accessibility Policy & Implementation Strategy</h2>
 
-        <img src={paragonLogo} className="project-image" alt="Paragon Policy Fellowship" />
+        <img src={paragonLogo} className="project-image paragon-banner" alt="Paragon Policy Fellowship" />
 
         <div className="project-details">
           <div className="project-section context">
             <h3>Context/Problem</h3>
-            <p>As part of the Paragon Policy Fellowship's case-study interview process, our team was cast as Maricopa County Election Officials tasked with advising Arizona's Secretary of State on proposed legislation to expand digital ("i-voting") statewide — weighing accessibility gains against the security and trust risks facing a county still recovering from the fallout of the 2020 election.</p>
+            <p>As part of the Paragon Policy Fellowship, our eight-person team was engaged by the City of Madison, Wisconsin to prepare it for upcoming federal accessibility enforcement. Under Title II of the ADA, municipalities serving populations over 50,000 must bring their digital services into compliance with WCAG 2.1 Level AA by April 24, 2026 — and Madison wanted to get ahead of it rather than scramble to meet the deadline.</p>
           </div>
           <div className="project-section role">
             <h3>Role</h3>
@@ -477,46 +477,41 @@ function Works({ activeWork, setActiveWork }) {
       </div>
       <div className="project-body">
         <div className="project-section">
-          <h3>Background</h3>
+          <h3>Team</h3>
+          <p>Wendy Zeng (Project Lead), Allie Ladjeva, Carlos Betancur, Claudia Hebert, Colin Angel, Zinan Yue, Noreen Ahmed, and Alexis Eskenazi.</p>
+        </div>
+
+        <div className="project-section">
+          <h3>Aims</h3>
           <p>
-            Maricopa County currently runs on a paper-based system — in-person and mail-in ballots — whose legitimacy came under intense scrutiny after the 2020 presidential election, including a state-senate-commissioned audit of 2.1 million votes that fueled widespread distrust. Proponents of digital voting point to Estonia, which has run a national i-voting system since 2005 and hit over 51% digital turnout in its 2023 parliamentary elections despite a population a fraction of Maricopa's size. The proposed legislation would issue every eligible Arizona voter a unique ID granting access to an online registry to cast, check, and verify their ballot — making Arizona the first state to run elections entirely online.
+            We set out to analyze the City of Madison's current digital accessibility landscape, benchmark it against comparable municipalities, and identify the key opportunities and gaps standing between Madison and full compliance. The goal wasn't just to check a regulatory box — it was to give Madison a long-term path toward digital accessibility that ensures residents with disabilities can fully access and benefit from public services.
           </p>
         </div>
 
         <div className="project-section">
-          <h3>Accessibility</h3>
+          <h3>Methodology</h3>
           <p>
-            Mail voting is heavily used in Arizona (75% of 2022 voters were registered for early ballots), but pickup/drop-off access has historically underserved Native American communities — an estimated 50,000 Navajo Nation homes lack street addresses, which causes voters to be assigned to the wrong precinct and have their ballots discarded under state law. Broadband access compounds the problem: communities like Gila Bend and Tolleson have internet coverage as low as 70%, which would effectively lock out a meaningful share of residents from an online-only or hybrid system. We also found that a hybrid in-person/online model raises its own equity concerns, since voters could be subject to different security guarantees depending on which system they're able to access.
+            We followed a five-stage process to ground our recommendations in evidence: a literature review of ADA/WCAG requirements and best practices, a comparative analysis benchmarking Madison against peer cities, direct stakeholder outreach, a review of Madison's existing digital policies, and finally policy development and recommendations synthesizing everything we'd found.
           </p>
         </div>
 
         <div className="project-section">
-          <h3>Cybersecurity</h3>
+          <h3>Deliverables</h3>
           <p>
-            A 2022 UC Berkeley Center for Security in Politics report concluded that current technology cannot yet support safe, transparent, and equitable online ballot return — citing widespread consumer-device malware and inadequate remote identification systems. Ballot anonymity, which is core to a fair vote, also makes it harder to detect fraud or tampering compared to other digital transactions. Even Estonia's system, often held up as the model, has been shown vulnerable: University of Michigan researchers simulating the platform successfully built client-side attacks that silently altered votes on a user's own machine, bypassing national ID and smartphone verification safeguards.
+            Our final report to the City consisted of three parts: a digital accessibility policy and implementation strategy designed to achieve Title II ADA compliance, policy guidance for drafting current and future Administrative Policy Memoranda (APMs), and an executive summary distilling our key research findings and recommendations for city leadership.
           </p>
         </div>
 
         <div className="project-section">
-          <h3>Fraud & Voter Security</h3>
+          <h3>Impact & Future Work</h3>
           <p>
-            Because i-voting shifts responsibility onto personal devices, it also shifts the burden of security onto individual voters rather than centralized infrastructure — and a significant share of Americans already fall for online scams despite years of experience banking and shopping online. This isn't hypothetical: during the 2020 election, voters in several swing states received emails impersonating the Proud Boys that threatened them by name if they didn't vote for a specific candidate. A digital system creates more entry points for this kind of intimidation and disinformation, and the stakes are higher when foreign adversaries or bad actors can target vulnerable groups, including military voters overseas, at scale.
-          </p>
-        </div>
-
-        <div className="project-section">
-          <h3>Recommendation</h3>
-          <p>
-            Our team recommended against the bill. Given how fragile public trust already is — only 16% of Americans report trusting the government most or all of the time — we concluded the security and legitimacy risks of statewide i-voting outweigh its accessibility benefits in the near term. If Maricopa does move toward digital voting in the future, we recommended pairing any rollout with a public education campaign, post-election exit surveys to gauge trust, and mandatory federal audits with published security reports.
-          </p>
-          <p>
-            In place of i-voting, we proposed lower-risk alternatives that address the same accessibility gaps: same-day and online voter registration (Arizona currently has one of the earliest registration deadlines in the country, while same-day registration has been shown to boost turnout by ~7% elsewhere), culturally targeted outreach and Spanish-language ballot access for Maricopa's Hispanic and Native populations, and mobile, circulating voting units to reach rural residents currently underserved by mail.
+            The report lays out both what Madison is already doing well and the structural gaps it needs to close ahead of the federal compliance deadline. Beyond meeting the letter of the law, our recommendations aim to position Madison as a leader in municipal digital accessibility. We flagged three priorities for the City going forward: building internal capacity through staff training, formalizing an ongoing accessibility review process rather than a one-time fix, and establishing clear mechanisms for accountability and community feedback — alongside continuing to track federal guidance and emerging best practices as they evolve.
           </p>
         </div>
 
         <div className="project-section">
           <h3>Learnings</h3>
-          <p>This case study was a crash course in translating a technically loaded policy question into a concise, persuasive brief for a non-technical audience — and in weighing accessibility against security when the two goals genuinely pull in different directions. Working under interview conditions with a distributed team also meant leadership and communication (via Slack and a shared doc) mattered as much as the research itself.</p>
+          <p>This project pushed me to translate dense regulatory language (ADA Title II, WCAG 2.1 AA) into a clear implementation roadmap a city government could actually act on. Working across an eight-person team through a structured five-stage process also reinforced how much a shared methodology helps keep a large group's research and recommendations coherent by the time they reach a client.</p>
         </div>
       </div>
     </div>
@@ -537,16 +532,32 @@ function Works({ activeWork, setActiveWork }) {
       <div className={isOpen ? "works-sidebar open" : "works-sidebar"}>
         <h2 ref={headerRef} className="works-header" onClick={() => setActiveWork(null)}>Works...<span className="blink">|</span></h2>
         <ul className="work-links">
+          <li><a onClick={() => handleClick('paragon')}>Paragon Policy Fellowship</a></li>
+          <li><a onClick={() => handleClick('stockScrapers')}>Stock Scrapers</a></li>
           <li><a onClick={() => handleClick('capeVerde')}>Cape Verdean Museum Redesign</a></li>
           <li><a onClick={() => handleClick('eCommerce')}>Sustainable E-Commerce Shopping Cart</a></li>
           <li><a onClick={() => handleClick('timeManagement')}>Time Management App</a></li>
-          <li><a onClick={() => handleClick('stockScrapers')}>Stock Scrapers</a></li>
-          <li><a onClick={() => handleClick('paragon')}>Paragon Policy Fellowship</a></li>
         </ul>
       </div>
       <div className="works-content">
         {!activeWork && (
           <>
+          <WorkCard
+            thumbtack={thumbtack}
+            image={paragonLogo}
+            title="Paragon Policy Fellowship"
+            skills="Policy Research, Writing, Analysis"
+            date="Spring 2025"
+            onClick={() => handleClick('paragon')}
+          />
+          <WorkCard
+            thumbtack={thumbtack}
+            image={stockScrapers}
+            title="Stock Scrapers"
+            skills="Python, SQL, Statistical Testing, ML"
+            date="Fall 2024"
+            onClick={() => handleClick('stockScrapers')}
+          />
           <WorkCard
             thumbtack={thumbtack}
             image={capeVerde}
@@ -570,22 +581,6 @@ function Works({ activeWork, setActiveWork }) {
             skills="Figma, Ethical Frameworks, AI"
             date="Spring 2024"
             onClick={() => handleClick('timeManagement')}
-          />
-          <WorkCard
-            thumbtack={thumbtack}
-            image={stockScrapers}
-            title="Stock Scrapers"
-            skills="Python, SQL, Statistical Testing, ML"
-            date="Fall 2024"
-            onClick={() => handleClick('stockScrapers')}
-          />
-          <WorkCard
-            thumbtack={thumbtack}
-            image={paragonLogo}
-            title="Paragon Policy Fellowship"
-            skills="Policy Research, Writing, Analysis"
-            date="Spring 2025"
-            onClick={() => handleClick('paragon')}
           />
         </>
         )}
