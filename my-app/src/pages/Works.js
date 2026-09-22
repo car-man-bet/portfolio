@@ -17,6 +17,8 @@ import objectives from '../assets/objectives.png';
 
 import wireframe from '../assets/wireframe.png';
 
+import stockScrapers from '../assets/stock_scrapers_poster.png';
+
 function Works({ activeWork, setActiveWork }) { 
   const headerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -328,6 +330,78 @@ function Works({ activeWork, setActiveWork }) {
     </div>
   );
 
+  const StockScrapersContent = () => (
+    <div className="cape-verde-content">
+      <div className="project-header">
+        <img src={thumbtack} alt="Thumbtack" className="work-thumbtack-img" />
+        <h2>Stock Scrapers: Social Media Mentions & Stock Volatility</h2>
+
+        <img src={stockScrapers} className="project-image" alt="Stock Scrapers Final Poster" />
+
+        <div className="project-details">
+          <div className="project-section context">
+            <h3>Context/Problem</h3>
+            <p>Social media has become a powerful, if unproven, force in shaping investor behavior, with platforms like Twitter and Reddit hosting constant speculation about the stock market. This project set out to test whether that influence shows up in the data: does the volume of social media mentions a stock receives actually predict its future price volatility?</p>
+          </div>
+          <div className="project-section role">
+            <h3>Role</h3>
+            <p>Data Analyst, Engineer</p>
+          </div>
+          <div className="project-section timeline">
+            <h3>Timeline</h3>
+            <p>Final Project</p>
+          </div>
+        </div>
+      </div>
+      <div className="project-body">
+        <div className="project-section">
+          <h3>Data & Methodology</h3>
+          <p>
+            Our team (Carlos Betancur, John Ryan Byers, Nathan DePiero, and Hunter Adrian) pulled from three sources and merged them into a SQL database: the <strong>WallStreetBets dataset</strong> (Reddit posts mentioning stock tickers, 1/28/21–8/16/21), the <strong>Stock Market Tweets dataset</strong> (Twitter posts mentioning tickers, 4/9/20–7/16/20), and the <strong>Yahoo Finance API</strong> for daily price volatility on the mentioned stocks. We aggregated post counts per ticker per day, cleaned duplicates, and standardized ticker formatting across datasets to align them. We deliberately excluded post content, authors, or other personal information given the sensitive nature of that data.
+          </p>
+          <p>
+            For hypothesis testing we ran two-sample t-tests (comparing volatility means between independent samples) and a paired t-test (comparing matched before/after volatility pairs). For the machine learning component, we ran a linear regression to look for a trend between mention volume and next-day volatility, and a k-means clustering analysis to explore relationships between mentions, volatility, and trading volume.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Findings</h3>
+          <p>
+            <strong>Mentions vs. volatility:</strong> A two-sample t-test comparing next-day volatility after high vs. low mention days returned an insignificant result (t = 1.371, p = 0.171) — no statistical evidence that mention volume predicts volatility.
+          </p>
+          <p>
+            <strong>Twitter vs. Reddit:</strong> Comparing next-day volatility after high-mention days on each platform also returned no significant difference (t = 0.448, p = 0.657).
+          </p>
+          <p>
+            <strong>Before vs. after high mentions:</strong> A paired t-test comparing volatility the day before vs. the day after a spike in mentions did return a significant result (p = 0.0047) — but in the opposite direction we expected. Volatility tended to <em>decrease</em> after high-mention days. Our read on this: volatility likely drives the posts, rather than posts driving volatility — people react to already-volatile stocks with mentions, and the stock settles afterward.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Machine Learning</h3>
+          <p>
+            Our linear regression modeled next-day volatility as a function of mention count, using an 80/20 train/test split. The model generalized well (MSE of 1.46 train vs. 1.71 test), but the r-squared values (0.001 train, 0.0005 test) confirmed there was essentially no linear relationship to capture.
+          </p>
+          <p>
+            The k-means clustering (across mentions, volatility, and trading volume) didn't cleanly separate by mention count, but the clusters lined up along the volume axis in a way that resembled groupings by market capitalization — suggesting a stock's size, not its social media buzz, was the stronger signal for trading volume.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Conclusions & Limitations</h3>
+          <p>
+            Overall, our data didn't support the popular narrative that social media chatter moves stock prices — a reasonable outcome given how efficient public markets tend to be. The main limitations were dataset scope: our Twitter and Reddit data each spanned about a year from different time windows, and we only tracked mention counts rather than sentiment. A follow-up study could pull longer time spans, add platforms like Instagram or TikTok, and incorporate sentiment analysis rather than raw mention volume.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Learnings</h3>
+          <p>Working on Stock Scrapers was a hands-on lesson in the discipline of hypothesis-driven analysis — designing tests before looking at results, and being willing to report a negative finding rather than reaching for a conclusion the data didn't support. It also reinforced how to combine statistical testing (t-tests) with unsupervised methods (k-means) to look at a question from multiple angles.</p>
+        </div>
+      </div>
+    </div>
+  );
+
   const handleClick = (work) => {
     setActiveWork(work); // Toggle activeWork
   
@@ -346,6 +420,7 @@ function Works({ activeWork, setActiveWork }) {
           <li><a onClick={() => handleClick('capeVerde')}>Cape Verdean Museum Redesign</a></li>
           <li><a onClick={() => handleClick('eCommerce')}>Sustainable E-Commerce Shopping Cart</a></li>
           <li><a onClick={() => handleClick('timeManagement')}>Time Management App</a></li>
+          <li><a onClick={() => handleClick('stockScrapers')}>Stock Scrapers</a></li>
         </ul>
       </div>
       <div className="works-content">
@@ -375,11 +450,20 @@ function Works({ activeWork, setActiveWork }) {
             date="Spring 2024"
             onClick={() => handleClick('timeManagement')}
           />
+          <WorkCard
+            thumbtack={thumbtack}
+            image={stockScrapers}
+            title="Stock Scrapers"
+            skills="Python, SQL, Statistical Testing, ML"
+            date="Fall 2024"
+            onClick={() => handleClick('stockScrapers')}
+          />
         </>
         )}
         {activeWork === 'capeVerde' && <CapeVerdeContent />}
         {activeWork === 'eCommerce' && <ECommerceContent />}
         {activeWork === 'timeManagement' && <TimeManagementContent />}
+        {activeWork === 'stockScrapers' && <StockScrapersContent />}
       </div>
     </div>
   );
