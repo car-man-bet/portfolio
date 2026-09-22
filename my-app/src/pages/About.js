@@ -60,7 +60,7 @@ function About() {
 
           <p>
             My name is{' '}
-            <span className="highlight">Carlos Betancur</span>, a
+            <span className="highlight">Carlos Betancur</span>. I'm a
             Practice Innovation Analyst at Katten Muchin Rosenman LLP
             and a graduate of Brown University, where I studied
             Computer Science and Economics.
