@@ -18,6 +18,11 @@ import objectives from '../assets/objectives.png';
 import wireframe from '../assets/wireframe.png';
 
 import stockScrapers from '../assets/stock_scrapers_poster.png';
+import stockScrapersLogo from '../assets/stock_scrapers_logo.png';
+import twitterPie from '../assets/twitter_mentions_pie.png';
+import redditPie from '../assets/reddit_mentions_pie.png';
+import kmeansMarketCap from '../assets/kmeans_marketcap.png';
+import regressionScatter from '../assets/regression_scatter.png';
 
 function Works({ activeWork, setActiveWork }) { 
   const headerRef = useRef(null);
@@ -334,9 +339,10 @@ function Works({ activeWork, setActiveWork }) {
     <div className="cape-verde-content">
       <div className="project-header">
         <img src={thumbtack} alt="Thumbtack" className="work-thumbtack-img" />
-        <h2>Stock Scrapers: Social Media Mentions & Stock Volatility</h2>
+        <img src={stockScrapersLogo} className="project-logo-banner" alt="Stock Scrapers" />
+        <h2>Social Media Mentions & Stock Performance</h2>
 
-        <img src={stockScrapers} className="project-image" alt="Stock Scrapers Final Poster" />
+        <img src={kmeansMarketCap} className="project-image" alt="K-means clustering of stock mentions, volatility, and trading volume, colored by market capitalization" />
 
         <div className="project-details">
           <div className="project-section context">
@@ -355,13 +361,23 @@ function Works({ activeWork, setActiveWork }) {
       </div>
       <div className="project-body">
         <div className="project-section">
+          <h3>Team</h3>
+          <p>Carlos Betancur, John Ryan Byers, Nathan DePiero, and Hunter Adrian.</p>
+        </div>
+
+        <div className="project-section">
           <h3>Data & Methodology</h3>
           <p>
-            Our team (Carlos Betancur, John Ryan Byers, Nathan DePiero, and Hunter Adrian) pulled from three sources and merged them into a SQL database: the <strong>WallStreetBets dataset</strong> (Reddit posts mentioning stock tickers, 1/28/21–8/16/21), the <strong>Stock Market Tweets dataset</strong> (Twitter posts mentioning tickers, 4/9/20–7/16/20), and the <strong>Yahoo Finance API</strong> for daily price volatility on the mentioned stocks. We aggregated post counts per ticker per day, cleaned duplicates, and standardized ticker formatting across datasets to align them. We deliberately excluded post content, authors, or other personal information given the sensitive nature of that data.
+            We pulled from three sources and merged them into a single SQL database: the <strong>WallStreetBets dataset</strong> (Reddit posts mentioning stock tickers, 1/28/21–8/16/21), the <strong>Stock Market Tweets dataset</strong> (Twitter posts mentioning tickers, 4/9/20–7/16/20), and the <strong>Yahoo Finance API</strong> for daily price and volatility data on the mentioned stocks. We aggregated post counts per ticker per day, cleaned duplicates, and standardized ticker formatting across datasets to align them. We deliberately excluded post content, authors, or other personal information from our database given the sensitive nature of that data.
           </p>
           <p>
-            For hypothesis testing we ran two-sample t-tests (comparing volatility means between independent samples) and a paired t-test (comparing matched before/after volatility pairs). For the machine learning component, we ran a linear regression to look for a trend between mention volume and next-day volatility, and a k-means clustering analysis to explore relationships between mentions, volatility, and trading volume.
+            For hypothesis testing, we ran two-sample t-tests (to compare volatility means between independent groups) and a paired t-test (to compare matched before/after volatility pairs, since those samples weren't independent). For the machine learning component, we ran a linear regression to look for a trend between mention volume and next-day volatility, and a k-means clustering analysis to explore relationships between mentions, volatility, and trading volume.
           </p>
+          <div className="project-subImages-container pie">
+            <img src={twitterPie} className="pie-img" alt="Twitter stock mention distribution by company" />
+            <img src={redditPie} className="pie-img" alt="Reddit stock mention distribution by company" />
+          </div>
+          <p className="image-caption">Share of mentions by ticker on each platform. Twitter's mentions skewed toward large-cap staples (S&P 500, Apple, AT&T); Reddit's were dominated by a single ticker — GameStop made up nearly 63% of all mentions in our window, a clear WallStreetBets-era artifact.</p>
         </div>
 
         <div className="project-section">
@@ -382,8 +398,38 @@ function Works({ activeWork, setActiveWork }) {
           <p>
             Our linear regression modeled next-day volatility as a function of mention count, using an 80/20 train/test split. The model generalized well (MSE of 1.46 train vs. 1.71 test), but the r-squared values (0.001 train, 0.0005 test) confirmed there was essentially no linear relationship to capture.
           </p>
+          <div className="project-subImages-container">
+            <img src={regressionScatter} className="project-subImage" alt="Linear regression of stock volatility against normalized number of mentions" />
+          </div>
           <p>
-            The k-means clustering (across mentions, volatility, and trading volume) didn't cleanly separate by mention count, but the clusters lined up along the volume axis in a way that resembled groupings by market capitalization — suggesting a stock's size, not its social media buzz, was the stronger signal for trading volume.
+            The k-means clustering (across mentions, volatility, and trading volume) didn't cleanly separate by mention count, but the clusters lined up along the volume axis in a way that resembled groupings by market capitalization, shown in the chart at the top of this page — suggesting a stock's size, not its social media buzz, was the stronger signal for trading volume.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Visualization Design</h3>
+          <p>
+            We used pie charts for the mention-share breakdowns since the goal was to show each company's mentions relative to the whole — something a bar chart doesn't communicate as intuitively. For the k-means and market-cap comparison, we chose a 3D scatter plot over a density-based option like a hexbin plot, since our data spanned three variables (mentions, volatility, and volume) and a scatter plot preserved the distinction between individual data points. Getting the two 3D charts to visually align was the trickiest part — the k-means cluster colors were assigned randomly, so we manually matched them to the market-cap color scheme, and had to correct an inverted axis so both charts shared the same viewing angle. For the regression, a scatter plot with a fitted line was the clearest way to show both the raw data and the (lack of a) trend at once.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Socio-Historical Context</h3>
+          <p>
+            This project sits downstream of a real shift in how retail investing works. The rise of platforms like Reddit's r/WallStreetBets showed that online communities could move real markets — most visibly during the 2021 GameStop episode — while zero-fee trading apps like Robinhood lowered the barrier for everyday people to act on what they saw online. Our findings complicate the popular narrative, though: we found no statistical link between mention volume and volatility. Even so, the scale of retail chatter we saw in the data (GameStop alone accounted for the large majority of Reddit mentions in our window) speaks to a real behavioral shift toward retail participation, even without a measurable price effect.
+          </p>
+          <p>
+            We identified four groups with a stake in this question: <strong>retail investors</strong>, who gain easier access to information but are also more exposed to misinformation and hype; <strong>institutional investors</strong>, whose strategies may need to account for social-media-driven volatility; <strong>regulators</strong> like the SEC, who may need to monitor these platforms for manipulation; and the <strong>platforms themselves</strong> (Twitter, Reddit), which shape investor sentiment through what they choose to surface.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Ethical Considerations</h3>
+          <p>
+            Our data carried a few likely biases worth naming: it only captured Twitter and Reddit, leaving out other forums and platforms; it reflects whoever posts on those two platforms, not a representative cross-section of investors; and it's skewed toward already-popular tickers, since larger companies simply get mentioned more. We also excluded post content and author IDs from our database specifically to avoid exposing anything about an individual's trading activity or sentiment, even though the underlying platforms make that data technically public. All of our source datasets were released under open-source or open-access terms, so our use of them was consistent with how they were shared.
+          </p>
+          <p>
+            The clearest misuse risk is someone citing our one significant result — the before/after paired t-test — without the context that it points the causal arrow the <em>opposite</em> way from what people usually assume (posts following volatility, not causing it). We were careful throughout to state plainly that our findings shouldn't inform anyone's actual investment decisions.
           </p>
         </div>
 
@@ -396,7 +442,7 @@ function Works({ activeWork, setActiveWork }) {
 
         <div className="project-section">
           <h3>Learnings</h3>
-          <p>Working on Stock Scrapers was a hands-on lesson in the discipline of hypothesis-driven analysis — designing tests before looking at results, and being willing to report a negative finding rather than reaching for a conclusion the data didn't support. It also reinforced how to combine statistical testing (t-tests) with unsupervised methods (k-means) to look at a question from multiple angles.</p>
+          <p>Working on Stock Scrapers was a hands-on lesson in the discipline of hypothesis-driven analysis — designing tests before looking at results, and being willing to report a negative finding rather than reaching for a conclusion the data didn't support. It also pushed us to think beyond the statistics: grounding the project in its socio-historical context and working through its ethical considerations made clear that even a "negative" result carries a responsibility to be communicated carefully.</p>
         </div>
       </div>
     </div>
