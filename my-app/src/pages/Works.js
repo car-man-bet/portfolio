@@ -350,11 +350,11 @@ function Works({ activeWork, setActiveWork }) {
           </div>
           <div className="project-section role">
             <h3>Role</h3>
-            <p>Data Analyst, Engineer</p>
+            <p>Data Engineer</p>
           </div>
           <div className="project-section timeline">
             <h3>Timeline</h3>
-            <p>Final Project</p>
+            <p>3 Months</p>
           </div>
         </div>
       </div>
