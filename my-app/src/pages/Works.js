@@ -24,6 +24,8 @@ import redditPie from '../assets/reddit_mentions_pie.png';
 import kmeansMarketCap from '../assets/kmeans_marketcap.png';
 import regressionScatter from '../assets/regression_scatter.png';
 
+import paragonLogo from '../assets/paragon_logo.png';
+
 function Works({ activeWork, setActiveWork }) { 
   const headerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -450,6 +452,76 @@ function Works({ activeWork, setActiveWork }) {
     </div>
   );
 
+  const ParagonContent = () => (
+    <div className="cape-verde-content">
+      <div className="project-header">
+        <img src={thumbtack} alt="Thumbtack" className="work-thumbtack-img" />
+        <h2>Paragon Policy Fellowship: Digital Voting in Maricopa County</h2>
+
+        <img src={paragonLogo} className="project-image" alt="Paragon Policy Fellowship" />
+
+        <div className="project-details">
+          <div className="project-section context">
+            <h3>Context/Problem</h3>
+            <p>As part of the Paragon Policy Fellowship's case-study interview process, our team was cast as Maricopa County Election Officials tasked with advising Arizona's Secretary of State on proposed legislation to expand digital ("i-voting") statewide — weighing accessibility gains against the security and trust risks facing a county still recovering from the fallout of the 2020 election.</p>
+          </div>
+          <div className="project-section role">
+            <h3>Role</h3>
+            <p>Policy Fellow</p>
+          </div>
+          <div className="project-section timeline">
+            <h3>Timeline</h3>
+            <p>4 Months</p>
+          </div>
+        </div>
+      </div>
+      <div className="project-body">
+        <div className="project-section">
+          <h3>Background</h3>
+          <p>
+            Maricopa County currently runs on a paper-based system — in-person and mail-in ballots — whose legitimacy came under intense scrutiny after the 2020 presidential election, including a state-senate-commissioned audit of 2.1 million votes that fueled widespread distrust. Proponents of digital voting point to Estonia, which has run a national i-voting system since 2005 and hit over 51% digital turnout in its 2023 parliamentary elections despite a population a fraction of Maricopa's size. The proposed legislation would issue every eligible Arizona voter a unique ID granting access to an online registry to cast, check, and verify their ballot — making Arizona the first state to run elections entirely online.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Accessibility</h3>
+          <p>
+            Mail voting is heavily used in Arizona (75% of 2022 voters were registered for early ballots), but pickup/drop-off access has historically underserved Native American communities — an estimated 50,000 Navajo Nation homes lack street addresses, which causes voters to be assigned to the wrong precinct and have their ballots discarded under state law. Broadband access compounds the problem: communities like Gila Bend and Tolleson have internet coverage as low as 70%, which would effectively lock out a meaningful share of residents from an online-only or hybrid system. We also found that a hybrid in-person/online model raises its own equity concerns, since voters could be subject to different security guarantees depending on which system they're able to access.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Cybersecurity</h3>
+          <p>
+            A 2022 UC Berkeley Center for Security in Politics report concluded that current technology cannot yet support safe, transparent, and equitable online ballot return — citing widespread consumer-device malware and inadequate remote identification systems. Ballot anonymity, which is core to a fair vote, also makes it harder to detect fraud or tampering compared to other digital transactions. Even Estonia's system, often held up as the model, has been shown vulnerable: University of Michigan researchers simulating the platform successfully built client-side attacks that silently altered votes on a user's own machine, bypassing national ID and smartphone verification safeguards.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Fraud & Voter Security</h3>
+          <p>
+            Because i-voting shifts responsibility onto personal devices, it also shifts the burden of security onto individual voters rather than centralized infrastructure — and a significant share of Americans already fall for online scams despite years of experience banking and shopping online. This isn't hypothetical: during the 2020 election, voters in several swing states received emails impersonating the Proud Boys that threatened them by name if they didn't vote for a specific candidate. A digital system creates more entry points for this kind of intimidation and disinformation, and the stakes are higher when foreign adversaries or bad actors can target vulnerable groups, including military voters overseas, at scale.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Recommendation</h3>
+          <p>
+            Our team recommended against the bill. Given how fragile public trust already is — only 16% of Americans report trusting the government most or all of the time — we concluded the security and legitimacy risks of statewide i-voting outweigh its accessibility benefits in the near term. If Maricopa does move toward digital voting in the future, we recommended pairing any rollout with a public education campaign, post-election exit surveys to gauge trust, and mandatory federal audits with published security reports.
+          </p>
+          <p>
+            In place of i-voting, we proposed lower-risk alternatives that address the same accessibility gaps: same-day and online voter registration (Arizona currently has one of the earliest registration deadlines in the country, while same-day registration has been shown to boost turnout by ~7% elsewhere), culturally targeted outreach and Spanish-language ballot access for Maricopa's Hispanic and Native populations, and mobile, circulating voting units to reach rural residents currently underserved by mail.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Learnings</h3>
+          <p>This case study was a crash course in translating a technically loaded policy question into a concise, persuasive brief for a non-technical audience — and in weighing accessibility against security when the two goals genuinely pull in different directions. Working under interview conditions with a distributed team also meant leadership and communication (via Slack and a shared doc) mattered as much as the research itself.</p>
+        </div>
+      </div>
+    </div>
+  );
+
   const handleClick = (work) => {
     setActiveWork(work); // Toggle activeWork
   
@@ -469,6 +541,7 @@ function Works({ activeWork, setActiveWork }) {
           <li><a onClick={() => handleClick('eCommerce')}>Sustainable E-Commerce Shopping Cart</a></li>
           <li><a onClick={() => handleClick('timeManagement')}>Time Management App</a></li>
           <li><a onClick={() => handleClick('stockScrapers')}>Stock Scrapers</a></li>
+          <li><a onClick={() => handleClick('paragon')}>Paragon Policy Fellowship</a></li>
         </ul>
       </div>
       <div className="works-content">
@@ -506,12 +579,21 @@ function Works({ activeWork, setActiveWork }) {
             date="Fall 2024"
             onClick={() => handleClick('stockScrapers')}
           />
+          <WorkCard
+            thumbtack={thumbtack}
+            image={paragonLogo}
+            title="Paragon Policy Fellowship"
+            skills="Policy Research, Writing, Analysis"
+            date="Spring 2025"
+            onClick={() => handleClick('paragon')}
+          />
         </>
         )}
         {activeWork === 'capeVerde' && <CapeVerdeContent />}
         {activeWork === 'eCommerce' && <ECommerceContent />}
         {activeWork === 'timeManagement' && <TimeManagementContent />}
         {activeWork === 'stockScrapers' && <StockScrapersContent />}
+        {activeWork === 'paragon' && <ParagonContent />}
       </div>
     </div>
   );
