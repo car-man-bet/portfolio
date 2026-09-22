@@ -1,328 +1,341 @@
 .container {
-    display: flex;
+  display: flex;
+}
+
+.cape-verde-content {
+  background-color: white;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+.works-sidebar {
+  position: fixed;
+  left: -250px;
+  bottom: 0;
+  top: 80px;
+  height: 90%;
+  width: 20%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #1e90ff;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 10px 10px 0px;
+  color: white;
+  transition: left 0.5s ease;
+  z-index: 4000;
+}
+
+.works-sidebar.open {
+  left: 0;
+}
+
+.works-sidebar h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: calc(20px + 0.2vw);
+}
+
+.work-links {
+  list-style-type: disc;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.works-sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.works-sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: calc(14px + 0.2vw);
+}
+
+/*
+ * The content area occupies the space to the right of
+ * the blue sidebar. CSS Grid keeps the cards evenly spaced.
+ */
+.works-content {
+  flex: 1;
+  padding: 40px;
+  margin-left: 25%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+.work-card {
+  width: 100%;
+  min-width: 0;
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background-color: white;
+  padding: 20px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-shadow: 10px 20px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.work-card h3 {
+  margin-top: 10px;
+  text-align: center;
+  min-height: 48px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.work-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-color: grey;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.thumbtack {
+  position: relative;
+  top: -20px;
+  left: -40px;
+}
+
+.work-card:hover {
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+}
+
+.works-header {
+  overflow: hidden;
+}
+
+.works-header span {
+  display: inline-block;
+  opacity: 0;
+  animation: typing 4s steps(40) forwards;
+}
+
+.works-header span:last-child {
+  animation: blink 1s infinite;
+}
+
+.works-header:hover,
+.work-links li a:hover,
+.work-card:hover {
+  cursor: pointer;
+}
+
+.work-details {
+  margin-top: auto;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.skills,
+.date {
+  padding: 0;
+  margin-bottom: 0px;
+}
+
+@keyframes typing {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
+
+.project-header {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-header h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.project-image {
+  width: 80%;
+  min-width: 300px;
+  margin-bottom: 20px;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-section {
+  margin-bottom: 20px;
+}
+
+.project-details {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-left: 11%;
+}
+
+.project-section {
+  flex-grow: 1;
+  margin-right: 15px;
+}
+
+.context {
+  flex-basis: 60%;
+}
+
+.role,
+.timeline {
+  flex-basis: 15%;
+}
+
+.work-thumbtack-img {
+  position: relative;
+  top: 0;
+  left: -50%;
+  width: 30px;
+}
+
+.project-body {
+  line-height: 25px;
+  padding: 20px;
+  padding-left: 70px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.project-body h3 {
+  width: auto;
+  background-color: rgba(255, 213, 0, 0.673);
+  border-bottom: 1px solid black;
+}
+
+.link {
+  color: red;
+}
+
+.project-subImages-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.project-subImage:hover,
+.project-image:hover {
+  transform: scale(1.05);
+}
+
+.cape-verde-content a {
+  text-decoration: none;
+}
+
+.project-subImage,
+.project-image {
+  width: 80%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-color: grey;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.project-subImage {
+  margin-top: 30px;
+  width: 60%;
+  min-width: 300px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+  .works-sidebar {
+    width: 20%;
   }
 
   .cape-verde-content {
-    background-color: white;
-    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .works-sidebar {
-    position: fixed;
-    left: -250px;
-    bottom: 0;
-    top: 80px;
-    height: 90%;
-    width: 20%;
-    padding: 20px;
-    background-color: #1e90ff;
-    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 0px 10px 10px 0px;/* Rounded corners */
-    color: white;
-    transition: left 0.5s ease;
-    z-index: 4000;
-  } 
-
-  
-  .works-sidebar.open {
-    left: 0; /* Slide in from the left */
+    width: 350px;
+    margin-left: 60px;
   }
 
-  .works-sidebar h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: calc(20px + 0.2vw);
-  }
-
-  .work-links {
-    list-style-type: disc; /* Add bullets */
-    margin: 0;
-    padding: 0; /* Optional: Add some spacing */
-    margin-left: 10px;
-  }
-  
-  .works-sidebar ul li {
-    margin-bottom: 20px;
-  }
-  
-  .works-sidebar ul li a {
-    text-decoration: none;
-    font-size: 15px;
-    color: white;
-    font-size: calc(14px + 0.2vw);
-  }
-  
   .works-content {
-    flex: 1;
+    margin-left: 15%;
     padding: 20px;
-    margin-left: 25%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  
-  .work-card {
-    width: 35%;
-    min-width: 200px; /* 33.33% width with 40px margin */
-    height: 440px;
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    background-color: white;
-    padding: 20px;
-    padding-bottom: 30px;
-    padding-left: 40px;
-    padding-right: 40px;
-    box-shadow: 10px 20px 16px rgba(0, 0, 0, 0.2);
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  
-  .work-card h3 {
-    margin-top: 10px;
-    text-align: center;
-    min-height: 48px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .work-image {
-    width: 100%; /* Rounded corners for the image */
-    height: 160px;
-    object-fit: cover;
-    border-color: grey;
-    border: 1px solid rgba(0, 0, 0, 0.1); 
-    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .thumbtack {
-    position: relative; /* Add position absolute */
-    top: -20px; /* Adjust top position as needed */
-    left: -40px; /* Adjust left position as needed */
-  }
-
-  .work-card:hover {
-    transform: rotate(-3deg);
-    transition: transform 0.3s ease; /* Add a smooth transition effect */
-  }
-
-  .works-header {
-    overflow: hidden; /* Hide overflow */
-  }
-  
-  .works-header span {
-    display: inline-block;
-    opacity: 0; /* Start with opacity 0 */
-    animation: typing 4s steps(40) forwards; /* Apply typing animation */
-  }
-  
-  .works-header span:last-child {
-    animation: blink 1s infinite; /* Apply blinking animation to the last span */
-  }
-
-  .works-header:hover, .work-links li a:hover, .work-card:hover {
-    cursor: pointer;
-  }
-
-  .work-details {
-    margin-top: auto;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    text-align: right;
-    line-height: 1.4;
-  }
-  
-  .skills,
-  .date {
-    padding: 0;
-    margin-bottom: 0px;
-  }
-  
-@keyframes typing {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes blink {
-    50% {
-      opacity: 1; /* Blinking effect */
-    }
-  }
-
-  .project-header {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center horizontally */ /* Center text horizontally */
-  }
-  
-  .project-header h2 {
-    margin-top: 0;
-    text-align: center;
-  }
-  
-  .project-image {
-    width: 80%;
-    min-width: 300px;
-    margin-bottom: 20px;
-    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .project-section {
-    margin-bottom: 20px;
-  }
-
-  .project-details {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap; /* Allow items to wrap */
-    margin-top: 20px; /* Add some space between the image and details */
-    margin-left: 11%;
-  }
-  
-  .project-section {
-    flex-grow: 1; /* Allow sections to grow equally */
-    margin-right: 15px; /* Adjust spacing between sections */
-  }
-  
-  .context {
-    flex-basis: 60%; /* 2/3 of the width */
-  }
-  
-  .role, .timeline {
-    flex-basis: 15%; /* 1/3 of the width for each section */
-  }
-
-  .work-thumbtack-img {
-    position: relative;
-    top: 0; /* Adjust top position as needed */
-    left: -50%; /* Adjust left position as needed */
-    width: 30px;
-  }
-
-  .project-body {
-    line-height: 25px;
-    padding: 20px;
-    padding-left: 70px;
-    margin-top: 0px;
-    padding-top: 0px;
-  }
-
-  .project-body h3 {
-    width: auto;
-    background-color: rgba(255, 213, 0, 0.673);
-    border-bottom: 1px solid black;
-  }
-
-  .link {
-    color: red;
-  }
-
-  .project-subImages-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px; /* Adjust margin as needed */
-  }
-
-  .project-subImage:hover, .project-image:hover {
-    transform: scale(1.05); /* Increase scale on hover */
-  }
-
-  .cape-verde-content a {
-    text-decoration: none;
-  }
-
-  .project-subImage,
-  .project-image {
-    width: 80%;
-    max-width: 100%; /* Ensure image doesn't exceed container width */
-    display: block; /* Ensure the image behaves as a block element */
-    margin: 0 auto; /* Center the image horizontally */
-    border-color: grey;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.3);
+    grid-template-columns: 1fr;
   }
 
   .project-subImage {
-    margin-top: 30px;
-    width: 60%;
-    min-width: 300px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    margin-right: 40px;
   }
 
-  @media (max-width: 600px) {
-    .works-sidebar {
-      width: 20%; /* Reduce sidebar width for smaller screens */
-    }
-
-    .cape-verde-content {
-      width: 350px;
-      margin-left: 60px;
-    }
-  
-    .works-content {
-      margin-left: 15%; /* Adjust content margin for smaller screens */
-    }
-
-    .project-subImage {
-      margin-right: 40px;
-    }
-
-    .work-card {
-      margin-left: 60px;
-    }
+  .work-card {
+    margin-left: 0;
   }
+}
 
-  .table_section {
-    display:flex;
-    flex-direction:column; 
-    align-items: center;
+.table_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 table {
-    border-collapse: collapse;
-    background-color:rgb(129, 171, 81);
-    width: 60%;
+  border-collapse: collapse;
+  background-color: rgb(129, 171, 81);
+  width: 60%;
 }
 
-th, td {
-    padding: 20px; /* Adjust the value as needed */
-    border: 1px solid #ddd;
-    text-align: left;
-    color: white;
+th,
+td {
+  padding: 20px;
+  border: 1px solid #ddd;
+  text-align: left;
+  color: white;
 }
 
 th {
-    text-align: center;
-    font-weight: bolder;
+  text-align: center;
+  font-weight: bolder;
 }
 
 td {
-    text-align: center;
+  text-align: center;
 }
 
 .project-subImages-container.time {
   margin-top: 30px;
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center horizontally */
+  justify-content: center;
   align-items: center;
 }
 
 .time-img {
-  width: 30%; /* Adjust as needed */
+  width: 30%;
   min-width: 200px;
   margin-right: 20px;
-  margin-bottom: 20px; /* Adjust as needed */
+  margin-bottom: 20px;
   box-shadow: inset 20px 20px 4px rgba(0, 0, 0, 0.3);
 }
 
