@@ -78,9 +78,9 @@ function About() {
 
           <p>
             I hope to pursue a legal career in the{' '}
-  <span className="highlight">
-    Emerging Companies, Venture Capital and/or Capital Markets
-  </span>{' '} 
+            <span className="highlight">
+            Emerging Companies, Venture Capital and/or Capital Markets
+            </span>{' '} 
               space, employing my legal and tech skills to support innovators from diverse backgrounds.
           </p>
         </section>
