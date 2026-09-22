@@ -1,45 +1,93 @@
 import React, { useEffect, useRef } from 'react';
-
-import './About.css'; // Import CSS file
-import profilePic from '../assets/profile_pic.jpeg'; // Import profile picture
+import './About.css';
+import profilePic from '../assets/profile_pic.jpeg';
 import thumbtack from '../assets/thumbtack.png';
 
 function About() {
-
   const headerRef = useRef(null);
 
   useEffect(() => {
     const text = headerRef.current;
-    if (text) {
-      const letters = text.textContent.split('');
-      text.textContent = '';
+    if (!text) return;
 
-      letters.forEach((letter, idx) => {
-        const span = document.createElement('span');
-        span.textContent = letter;
-        span.style.animationDelay = `${idx * 100}ms`;
-        text.appendChild(span);
-      });
-    }
+    const letters = text.textContent.split('');
+    text.textContent = '';
+
+    letters.forEach((letter, idx) => {
+      const span = document.createElement('span');
+      span.textContent = letter;
+      span.style.animationDelay = `${idx * 70}ms`;
+      text.appendChild(span);
+    });
   }, []);
 
   return (
-    <div className="container">
-      <div className="polaroid">
-        <div className="thumbtack">
-          <img src={thumbtack} alt="Thumbtack" className="thumbtack-img" />
+    <main className="about-page">
+      <div className="container">
+        <div className="polaroid">
+          <div className="thumbtack">
+            <img
+              src={thumbtack}
+              alt=""
+              aria-hidden="true"
+              className="thumbtack-img"
+            />
+          </div>
+
+          <img
+            src={profilePic}
+            alt="Carlos Betancur"
+            className="profile-pic"
+          />
+
+          <div className="label">Seattle, WA ~ 2022</div>
         </div>
-        <img src={profilePic} alt="Profile" className="profile-pic" />
-        <div className="label">Seattle, WA ~ 2022</div> {/* New label */}
+
+        <section
+          className="about-text"
+          aria-labelledby="about-heading"
+        >
+          <h2
+            ref={headerRef}
+            id="about-heading"
+            className="about-header"
+          >
+            About Me...
+            <span className="blink" aria-hidden="true">
+              |
+            </span>
+          </h2>
+
+          <p>
+            My name is{' '}
+            <span className="highlight">Carlos Betancur</span>, a
+            Practice Innovation Analyst at Katten Muchin Rosenman LLP
+            and a graduate of Brown University, where I studied
+            Computer Science and Economics.
+          </p>
+
+          <p>
+            My professional experience sits at the intersection of{' '}
+            <span className="underline">
+              technology, legal practice, and innovation
+            </span>
+            . I have worked as a software engineer, built products in
+            legal technology, and now help attorneys integrate emerging
+            technologies into their practices. Across these
+            experiences, I have become particularly interested in how
+            technology can promote social equity while
+            navigating the legal and institutional systems that shape
+            its development.
+          </p>
+
+          <p>
+            I am especially interested in using technology and legal
+            expertise to help innovators from diverse backgrounds
+            bring their ideas to life.
+          </p>
+        </section>
       </div>
-      <div className="about-text">
-      <h2 ref={headerRef} className="about-header">About&nbsp;Me...<span className="blink">|</span></h2>
-        <p>My name is <span className="highlight">Carlos Betancur</span>and I am a senior at Brown University studying Computer Science 
-          and Economics. Throughout my professional and academic career, I have gained experience working on projects in <span className="underline">public health</span>,&nbsp;<span className="underline">high tech</span>, and <span className="underline">community engagement</span>. As an aspiring<span className="highlight">Product Manager</span>, I am passionate 
-          about leveraging technological innovation and business strategy to promote social equity and generate a positive impact. 
-        </p>
-      </div>
-    </div>
+    </main>
   );
 }
 
