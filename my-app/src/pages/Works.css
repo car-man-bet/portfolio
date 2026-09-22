@@ -362,6 +362,12 @@ td {
   font-style: italic;
   margin-top: 10px;
 }
+
+.paragon-banner {
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+}
   
 
 
