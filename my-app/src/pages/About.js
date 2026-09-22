@@ -4,10 +4,10 @@ import profilePic from '../assets/profile_pic.jpeg';
 import thumbtack from '../assets/thumbtack.png';
 
 function About() {
-  const headerRef = useRef(null);
+  const headerTextRef = useRef(null);
 
   useEffect(() => {
-    const text = headerRef.current;
+    const text = headerTextRef.current;
     if (!text) return;
 
     const letters = text.textContent.split('');
@@ -48,22 +48,19 @@ function About() {
           aria-labelledby="about-heading"
         >
           <h2
-            ref={headerRef}
             id="about-heading"
             className="about-header"
           >
-            About Me...
-            <span className="blink" aria-hidden="true">
-              |
-            </span>
+            <span ref={headerTextRef}>About&nbsp;Me...</span>
+            <span className="blink" aria-hidden="true">|</span>
           </h2>
 
           <p>
             My name is{' '}
-            <span className="highlight">Carlos Betancur</span>. I'm a
+            <span className="highlight">Carlos Betancur</span>, a
             Practice Innovation Analyst at Katten Muchin Rosenman LLP
-            and a graduate of Brown University, where I studied
-            Computer Science and Economics.
+            and a graduate of Brown University, where I studied Computer
+            Science and Economics.
           </p>
 
           <p>
@@ -73,17 +70,16 @@ function About() {
             </span>
             . I have worked as a software engineer, built products in
             legal technology, and now help attorneys integrate emerging
-            technologies into their practices. Across these
-            experiences, I have become particularly interested in how
-            technology can promote social equity while
-            navigating the legal and institutional systems that shape
-            its development.
+            technologies into their practices. Across these experiences,
+            I have become particularly interested in how technology can
+            promote social equity while navigating the legal and
+            institutional systems that shape its development.
           </p>
 
           <p>
             I am especially interested in using technology and legal
-            expertise to help innovators from diverse backgrounds
-            bring their ideas to life.
+            expertise to help innovators from diverse backgrounds bring
+            their ideas to life.
           </p>
         </section>
       </div>
