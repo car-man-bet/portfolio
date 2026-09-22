@@ -368,6 +368,22 @@ td {
   object-fit: cover;
   object-position: center;
 }
+
+.project-subImages-container.gallery {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery-img {
+  width: 30%;
+  min-width: 260px;
+  max-width: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
   
 
 
