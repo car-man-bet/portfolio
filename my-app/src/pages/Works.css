@@ -64,7 +64,7 @@
   .work-card {
     width: 35%;
     min-width: 200px; /* 33.33% width with 40px margin */
-    height: 380px;
+    height: 440px;
     display: flex;
     flex-direction: column;
     margin: 20px;
@@ -129,7 +129,9 @@
   .work-details {
     margin-top: auto;
     padding-top: 20px;
+    padding-bottom: 10px;
     text-align: right;
+    line-height: 1.4;
   }
   
   .skills,
