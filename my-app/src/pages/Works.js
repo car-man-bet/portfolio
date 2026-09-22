@@ -26,6 +26,13 @@ import regressionScatter from '../assets/regression_scatter.png';
 
 import paragonLogo from '../assets/paragon_logo.png';
 
+import fitbitHeartRate from '../assets/fitbit_heart_rate.png';
+import fitbitWeight from '../assets/fitbit_weight.png';
+import fitbitDiet from '../assets/fitbit_diet.png';
+import fitbitExercise from '../assets/fitbit_exercise.png';
+import fitbitInsights from '../assets/fitbit_insights.png';
+import fitbitApproved from '../assets/fitbit_approved.png';
+
 function Works({ activeWork, setActiveWork }) { 
   const headerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -517,6 +524,86 @@ function Works({ activeWork, setActiveWork }) {
     </div>
   );
 
+  const FitbitInterfaceContent = () => (
+    <div className="cape-verde-content">
+      <div className="project-header">
+        <img src={thumbtack} alt="Thumbtack" className="work-thumbtack-img" />
+        <h2>Health Insurer Access to Wearable Device Data</h2>
+
+        <img src={fitbitHeartRate} className="project-image" alt="Heart rate tab of the patient health-data censoring interface" />
+
+        <div className="project-details">
+          <div className="project-section context">
+            <h3>Context/Problem</h3>
+            <p>As health insurers increasingly look to wearable device data (heart rate, weight, diet, exercise) to refine risk assessment and encourage healthy behavior, patients are left with little control over what's actually shared. This project critically examines the justifications and long-term risks of that data exchange, and proposes a technical artifact: a user interface that lets patients review, censor, and approve exactly what goes into their health reports before insurers ever see them.</p>
+          </div>
+          <div className="project-section role">
+            <h3>Role</h3>
+            <p>Researcher</p>
+          </div>
+          <div className="project-section timeline">
+            <h3>Timeline</h3>
+            <p>2 Months</p>
+          </div>
+        </div>
+      </div>
+      <div className="project-body">
+        <div className="project-section">
+          <h3>Course</h3>
+          <p>Individual final project for CSCI 1952B: Responsible Computer Science in Practice.</p>
+        </div>
+
+        <div className="project-section">
+          <h3>Problem Space</h3>
+          <p>
+            Wearable-linked insurance programs sit at the intersection of several tensions. Ethically, they raise questions of patient autonomy, beneficence, and justice — how do you let insurers make informed decisions without compromising patient privacy or consent? Legally, developers and insurers have to navigate a dense regulatory landscape (HIPAA in the US, GDPR in the EU, and community-rating rules that bar insurers from price-discriminating within a region). And from an equity standpoint, incentive programs that reward "healthy" metrics risk penalizing people who don't have the resources to hit them, so any design needs guardrails against unjust outcomes rooted in social disparities rather than actual health status.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Guardrails & Framework</h3>
+          <p>
+            I grounded the artifact's design in a medical-ethics framework built around three concepts: <strong>data privacy and security</strong> (patients should be able to control who accesses their information and how), <strong>transparency</strong> (patients need to understand what's collected and why, rather than facing a paternalistic system), and <strong>consent and autonomy</strong> (patients, not insurers, should decide whether and how their wearable data gets shared).
+          </p>
+          <p>
+            I also consulted two experts to stress-test the design: David J. Meyers (Brown University) on the risks of standardizing healthcare data across insurers with uneven data-collection practices, and Stephanie Goldstein (Assistant Professor of Psychiatry and Human Behavior) on minimizing unnecessary protected health information and treating wearable metrics as supplementary proxies rather than diagnostic truth.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Artifact Design</h3>
+          <p>
+            The result is a censoring interface for patients enrolled in a wearable-data exchange program with their insurer. Data is organized into five sections — heart rate, weight, diet, exercise, and insights — each with a graph, a table, and an info popup explaining how that data point is used. Login is gated behind a sign-in flow specced for OAuth 2.0.
+          </p>
+          <div className="project-subImages-container gallery">
+            <img src={fitbitHeartRate} className="gallery-img" alt="Heart rate tab with daily average BPM chart and table" />
+            <img src={fitbitWeight} className="gallery-img" alt="Weight tab with average weight and weight-change charts" />
+            <img src={fitbitDiet} className="gallery-img" alt="Diet tab with calories and water consumption charts" />
+            <img src={fitbitExercise} className="gallery-img" alt="Exercise tab with weekly distance walked and swam chart" />
+            <img src={fitbitInsights} className="gallery-img" alt="Insights tab flagging benchmark heart rate and activity standards" />
+            <img src={fitbitApproved} className="gallery-img" alt="Confirmation modal after a patient approves their health report" />
+          </div>
+          <p className="image-caption">The five data tabs, plus the confirmation step patients see after approving their report for release to their insurer.</p>
+          <p>
+            Patients can censor data at three levels of granularity: <strong>critical</strong> data essential to a proper health evaluation, <strong>voluntary</strong> data that's beneficial but not required (and that could undermine autonomy if enforced, like exercise data used to pressure activity), and <strong>unnecessary</strong> data collected by the device but irrelevant to health status or risky to privacy (like sleep or GPS data). The interface only surfaces the past month of data, aligned to the premium billing cycle, and aggregates it to daily or weekly averages so insurers can't reverse-engineer a patient's actual schedule from granular timestamps. Patients can also opt in to share flagged "insights" — for example, a per-day average heart rate outside 60–90 BPM, or falling short of a 7,000-step daily benchmark — and must give final approval before any report goes out.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Conclusion</h3>
+          <p>
+            The censoring tool is built to uphold autonomy, beneficence, and privacy in a space where those principles are often treated as secondary to convenience. That said, it's a partial solution — it gives individual patients more control, but it doesn't fix the deeper inequities in how wearable-linked insurance programs are designed and who they end up benefiting. Meaningful progress here needs a more holistic approach that keeps equitable access to healthcare resources in view, not just individual consent.
+          </p>
+        </div>
+
+        <div className="project-section">
+          <h3>Learnings</h3>
+          <p>This project pushed me to design with ethics as a constraint from day one rather than a retrofit — every interface decision, from data tiers to time-frame limits, traced back to a specific privacy or equity concern surfaced in the research. It also reinforced how much nuance lives in the gap between what's technically compliant (HIPAA, community rating) and what's actually respectful of patient autonomy.</p>
+        </div>
+      </div>
+    </div>
+  );
+
   const handleClick = (work) => {
     setActiveWork(work); // Toggle activeWork
   
@@ -533,10 +620,11 @@ function Works({ activeWork, setActiveWork }) {
         <h2 ref={headerRef} className="works-header" onClick={() => setActiveWork(null)}>Works...<span className="blink">|</span></h2>
         <ul className="work-links">
           <li><a onClick={() => handleClick('paragon')}>Paragon Policy Fellowship</a></li>
-          <li><a onClick={() => handleClick('stockScrapers')}>Stock Scrapers</a></li>
+          <li><a onClick={() => handleClick('fitbitInterface')}>Health Insurer Wearable Data</a></li>
           <li><a onClick={() => handleClick('capeVerde')}>Cape Verdean Museum Redesign</a></li>
           <li><a onClick={() => handleClick('eCommerce')}>Sustainable E-Commerce Shopping Cart</a></li>
           <li><a onClick={() => handleClick('timeManagement')}>Time Management App</a></li>
+          <li><a onClick={() => handleClick('stockScrapers')}>Stock Scrapers</a></li>
         </ul>
       </div>
       <div className="works-content">
@@ -552,11 +640,11 @@ function Works({ activeWork, setActiveWork }) {
           />
           <WorkCard
             thumbtack={thumbtack}
-            image={stockScrapers}
-            title="Stock Scrapers"
-            skills="Python, SQL, Statistical Testing, ML"
-            date="Fall 2024"
-            onClick={() => handleClick('stockScrapers')}
+            image={fitbitHeartRate}
+            title="Health Insurer Wearable Data"
+            skills="UI Design, Research, Ethics"
+            date="Spring 2024"
+            onClick={() => handleClick('fitbitInterface')}
           />
           <WorkCard
             thumbtack={thumbtack}
@@ -582,13 +670,22 @@ function Works({ activeWork, setActiveWork }) {
             date="Spring 2024"
             onClick={() => handleClick('timeManagement')}
           />
+          <WorkCard
+            thumbtack={thumbtack}
+            image={stockScrapers}
+            title="Stock Scrapers"
+            skills="Python, SQL, Statistical Testing, ML"
+            date="Fall 2024"
+            onClick={() => handleClick('stockScrapers')}
+          />
         </>
         )}
+        {activeWork === 'paragon' && <ParagonContent />}
+        {activeWork === 'fitbitInterface' && <FitbitInterfaceContent />}
         {activeWork === 'capeVerde' && <CapeVerdeContent />}
         {activeWork === 'eCommerce' && <ECommerceContent />}
         {activeWork === 'timeManagement' && <TimeManagementContent />}
         {activeWork === 'stockScrapers' && <StockScrapersContent />}
-        {activeWork === 'paragon' && <ParagonContent />}
       </div>
     </div>
   );
