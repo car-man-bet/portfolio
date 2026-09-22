@@ -558,6 +558,9 @@ function Works({ activeWork, setActiveWork }) {
           <p>
             Wearable-linked insurance programs sit at the intersection of several tensions. Ethically, they raise questions of patient autonomy, beneficence, and justice — how do you let insurers make informed decisions without compromising patient privacy or consent? Legally, developers and insurers have to navigate a dense regulatory landscape (HIPAA in the US, GDPR in the EU, and community-rating rules that bar insurers from price-discriminating within a region). And from an equity standpoint, incentive programs that reward "healthy" metrics risk penalizing people who don't have the resources to hit them, so any design needs guardrails against unjust outcomes rooted in social disparities rather than actual health status.
           </p>
+          <p>
+            Before designing the artifact, I wrote a <a href="https://docs.google.com/document/d/1kQx5qW6AlgB2Oqz1lQhmLmCFY1AqgDXpbyb5-7V-Lbs/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="link">comparative analysis</a> of existing wearable-data and insurance policies to ground these tensions in real precedent.
+          </p>
         </div>
 
         <div className="project-section">
