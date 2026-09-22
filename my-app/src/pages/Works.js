@@ -573,20 +573,61 @@ function Works({ activeWork, setActiveWork }) {
         <div className="project-section">
           <h3>Artifact Design</h3>
           <p>
-            The result is a censoring interface for patients enrolled in a wearable-data exchange program with their insurer. Data is organized into five sections — heart rate, weight, diet, exercise, and insights — each with a graph, a table, and an info popup explaining how that data point is used. Login is gated behind a sign-in flow specced for OAuth 2.0.
+            The result is a censoring interface for patients enrolled in a wearable-data exchange program with their insurer. Data is organized into five sections — heart rate, weight, diet, exercise, and insights — each with a graph, a table, and an info popup explaining how that data point is used and why. Login is gated behind a sign-in flow specced for OAuth 2.0, and patients can censor data at three levels of granularity: <strong>critical</strong> data essential to a proper health evaluation, <strong>voluntary</strong> data that's beneficial but not required (and that could undermine autonomy if enforced, like exercise data used to pressure activity), and <strong>unnecessary</strong> data collected by the device but irrelevant to health status or risky to privacy (like sleep or GPS data).
           </p>
-          <div className="project-subImages-container gallery">
-            <img src={fitbitHeartRate} className="gallery-img" alt="Heart rate tab with daily average BPM chart and table" />
-            <img src={fitbitWeight} className="gallery-img" alt="Weight tab with average weight and weight-change charts" />
-            <img src={fitbitDiet} className="gallery-img" alt="Diet tab with calories and water consumption charts" />
-            <img src={fitbitExercise} className="gallery-img" alt="Exercise tab with weekly distance walked and swam chart" />
-            <img src={fitbitInsights} className="gallery-img" alt="Insights tab flagging benchmark heart rate and activity standards" />
-            <img src={fitbitApproved} className="gallery-img" alt="Confirmation modal after a patient approves their health report" />
-          </div>
-          <p className="image-caption">The five data tabs, plus the confirmation step patients see after approving their report for release to their insurer.</p>
+        </div>
+
+        <div className="project-section">
+          <h4>Heart Rate</h4>
           <p>
-            Patients can censor data at three levels of granularity: <strong>critical</strong> data essential to a proper health evaluation, <strong>voluntary</strong> data that's beneficial but not required (and that could undermine autonomy if enforced, like exercise data used to pressure activity), and <strong>unnecessary</strong> data collected by the device but irrelevant to health status or risky to privacy (like sleep or GPS data). The interface only surfaces the past month of data, aligned to the premium billing cycle, and aggregates it to daily or weekly averages so insurers can't reverse-engineer a patient's actual schedule from granular timestamps. Patients can also opt in to share flagged "insights" — for example, a per-day average heart rate outside 60–90 BPM, or falling short of a 7,000-step daily benchmark — and must give final approval before any report goes out.
+            The heart rate tab surfaces a daily average BPM chart and table for the past billing month, flagged as critical data since it's used to identify cardiovascular risk. The info panel explains exactly how this metric feeds into insurer risk assessment, rather than leaving patients to guess.
           </p>
+          <div className="project-subImages-container">
+            <img src={fitbitHeartRate} className="project-subImage" alt="Heart rate tab with daily average BPM chart and table" />
+          </div>
+        </div>
+
+        <div className="project-section">
+          <h4>Weight</h4>
+          <p>
+            The weight tab tracks average weight and week-over-week weight change, used to flag potentially harmful weight patterns. Because this data can be sensitive, patients see both raw values and the trend before deciding whether to include it.
+          </p>
+          <div className="project-subImages-container">
+            <img src={fitbitWeight} className="project-subImage" alt="Weight tab with average weight and weight-change charts" />
+          </div>
+        </div>
+
+        <div className="project-section">
+          <h4>Diet</h4>
+          <p>
+            The diet tab charts daily calorie and water consumption, which insurers use to identify risk for unhealthy diet habits that might warrant at-risk care outreach. Visuals here are opt-in, letting patients decide how granular a picture to share.
+          </p>
+          <div className="project-subImages-container">
+            <img src={fitbitDiet} className="project-subImage" alt="Diet tab with calories and water consumption charts" />
+          </div>
+        </div>
+
+        <div className="project-section">
+          <h4>Exercise</h4>
+          <p>
+            The exercise tab shows weekly average distance walked/run and swam, tied to participation in health-insurance incentive programs. This is a good example of voluntary data — useful for patients who want credit for activity, but not something the interface pressures anyone into sharing.
+          </p>
+          <div className="project-subImages-container">
+            <img src={fitbitExercise} className="project-subImage" alt="Exercise tab with weekly distance walked and swam chart" />
+          </div>
+        </div>
+
+        <div className="project-section">
+          <h4>Insights & Approval</h4>
+          <p>
+            The insights tab is where the interface synthesizes everything into plain-language flags — for example, whether a patient's heart rate falls outside a 60–90 BPM benchmark, or whether they're hitting a 7,000-step daily activity target — so patients can see exactly what insurers would infer before deciding whether to include it. The interface only ever surfaces the past month of data, aligned to the premium billing cycle, and aggregates everything to daily or weekly averages so insurers can't reverse-engineer a patient's actual schedule from granular timestamps. Nothing is sent anywhere until the patient reviews the full report and hits "Approve."
+          </p>
+          <div className="project-subImages-container">
+            <img src={fitbitInsights} className="project-subImage" alt="Insights tab flagging benchmark heart rate and activity standards" />
+          </div>
+          <div className="project-subImages-container">
+            <img src={fitbitApproved} className="project-subImage" alt="Confirmation modal after a patient approves their health report" />
+          </div>
         </div>
 
         <div className="project-section">
