@@ -339,10 +339,9 @@ function Works({ activeWork, setActiveWork }) {
     <div className="cape-verde-content">
       <div className="project-header">
         <img src={thumbtack} alt="Thumbtack" className="work-thumbtack-img" />
-        <img src={stockScrapersLogo} className="project-logo-banner" alt="Stock Scrapers" />
         <h2>Social Media Mentions & Stock Performance</h2>
 
-        <img src={kmeansMarketCap} className="project-image" alt="K-means clustering of stock mentions, volatility, and trading volume, colored by market capitalization" />
+        <img src={stockScrapersLogo} className="project-image" alt="Stock Scrapers" />
 
         <div className="project-details">
           <div className="project-section context">
@@ -402,8 +401,11 @@ function Works({ activeWork, setActiveWork }) {
             <img src={regressionScatter} className="project-subImage" alt="Linear regression of stock volatility against normalized number of mentions" />
           </div>
           <p>
-            The k-means clustering (across mentions, volatility, and trading volume) didn't cleanly separate by mention count, but the clusters lined up along the volume axis in a way that resembled groupings by market capitalization, shown in the chart at the top of this page — suggesting a stock's size, not its social media buzz, was the stronger signal for trading volume.
+            The k-means clustering (across mentions, volatility, and trading volume) didn't cleanly separate by mention count, but the clusters lined up along the volume axis in a way that resembled groupings by market capitalization — suggesting a stock's size, not its social media buzz, was the stronger signal for trading volume.
           </p>
+          <div className="project-subImages-container">
+            <img src={kmeansMarketCap} className="project-subImage" alt="K-means clustering of stock mentions, volatility, and trading volume, colored by market capitalization" />
+          </div>
         </div>
 
         <div className="project-section">
