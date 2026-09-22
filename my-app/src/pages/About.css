@@ -5,7 +5,7 @@
 
 .container {
   background-color: beige;
-  padding: 20px;
+  padding: 55px 20px 40px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -67,26 +67,14 @@
   overflow: hidden;
 }
 
-/*
- * The individual letters are animated when the page loads.
- * The cursor is kept separate so it can continue blinking
- * after the heading finishes typing.
- */
-.about-header .typing-letter {
-  display: inline-block;
-  opacity: 0;
-  animation: typing 0.7s forwards;
-}
-
+/* Animate the letters of "About Me..." individually */
 .about-header > span:first-child > span {
   display: inline-block;
   opacity: 0;
   animation: typing 0.7s forwards;
 }
 
-/*
- * Keep the cursor independent from the typing animation.
- */
+/* Keep the cursor separate so it continues blinking */
 .about-header .blink {
   display: inline-block;
   opacity: 1;
@@ -138,6 +126,10 @@
 }
 
 @media screen and (max-width: 700px) {
+  .container {
+    padding: 55px 20px 40px;
+  }
+
   .polaroid {
     padding-bottom: 110px;
     padding-right: 70px;
