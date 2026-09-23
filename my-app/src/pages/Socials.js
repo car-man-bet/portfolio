@@ -28,7 +28,7 @@ function Socials() {
   return (
     <div className="socials-container">
       <div className="social-index-card">
-        <h2 ref={headerRef} className="about-header">Let's&nbsp;connect...<span className="blink">|</span></h2>
+        <h2 ref={headerRef} className="socials-header">Let's&nbsp;connect...<span className="blink">|</span></h2>
           <img src={paperclip} alt="Paperclip" className="paperclip"></img>
           <p>hello</p>
           <p>hello</p>
