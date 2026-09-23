@@ -47,7 +47,7 @@ function Socials() {
               <img src={youtube} alt="YouTube Icon" className="social-icon"></img>
             </a>
 
-            <a href="mailto:carlos_betancur@brown.edu" className="social-icon">
+            <a href="mailto:carlos_betancur@alumni.brown.edu" className="social-icon">
               <img src={email} alt="Email Icon" className="social-icon"></img>
             </a>
 
