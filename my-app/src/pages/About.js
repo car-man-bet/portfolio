@@ -70,10 +70,7 @@ function About() {
             </span>
             . I have worked as a software engineer, built products in
             legal technology, and now help attorneys integrate emerging
-            technologies into their practices. Across these experiences,
-            I have become particularly interested in how technology can
-            promote social equity while navigating the legal and
-            institutional systems that shape its development.
+            technologies into their practices. 
           </p>
 
           <p>
