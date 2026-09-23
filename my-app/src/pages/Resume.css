@@ -128,3 +128,17 @@
   .resume-header blink {
     color: red;
   }
+
+  /* Music ensembles: name on the left, dates on the right */
+  .ensembles li {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin-bottom: 6px;
+  }
+
+  .ensemble-dates {
+    white-space: nowrap;
+    color: #555;
+  }
