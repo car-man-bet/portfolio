@@ -37,18 +37,19 @@
   }
   
 
-  .resume-header blink {
+  /* Letters of "Resume..." appear one by one (delays are set in Resume.js) */
+  .resume-header span {
     display: inline-block;
-    opacity: 0; /* Start with opacity 0 */
-    animation: typing 4s steps(40) forwards; 
-    color: red;/* Apply typing animation */
-  }
-  
-  .resume-header blink:last-child {
-    animation: blink 1s infinite;
+    opacity: 0;
+    animation: resume-typing 1s forwards;
   }
 
-  @keyframes typing {
+  /* The last span is the "|" cursor, which keeps flashing */
+  .resume-header span:last-child {
+    animation: resume-blink 1s infinite;
+  }
+
+  @keyframes resume-typing {
     from {
       opacity: 1;
     }
@@ -56,10 +57,15 @@
       opacity: 1;
     }
   }
-  
-  @keyframes blink {
-    50% {
+
+  @keyframes resume-blink {
+    0%,
+    49% {
       opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
     }
   }
   
@@ -125,9 +131,6 @@
     text-decoration: none; /* Remove underline */
   }
 
-  .resume-header blink {
-    color: red;
-  }
 
   /* Music ensembles: name on the left, dates on the right */
   .ensembles li {
